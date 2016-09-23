@@ -22,7 +22,7 @@ var content = {
   heading:"Aricle One",
   body:`
   <p>This is my content for the article</p>
-  <p>This is my content for the article</p>
+  <p>This is my content for article</p>
   <p>This is my content for the article</p>`
 };
 
