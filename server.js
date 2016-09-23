@@ -17,17 +17,33 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-var content = {
+var contents = 
+contentOne : {
   date : "23 Sep",  
   heading:"Aricle One",
   body:`
   <p>This is my content for the article</p>
   <p>This is my content for article</p>
   <p>This is my content for the article</p>`
+,
+contentTwo : {
+  date : "1 Sep",  
+  heading:"Aricle Two",
+  body:`
+  <p>This is my content for 2nd article</p>
+  <p>This is my content for article</p>
+  <p>This is my content for the article</p>`},
+contentThree : {
+  date : "3 Sep",  
+  heading:"Aricle Three",
+  body:`
+  <p>This is my content for article</p>
+  <p>This is my content for the article</p>`
 };
 
-app.get('/Articleone',function(req,res){
-   res.send(createTemplate(content));
+app.get('/:articleName',function(req,res){
+    var articleName=req.param.articleName;
+   res.send(createTemplate(contents[articleName]));
    
 });
 
