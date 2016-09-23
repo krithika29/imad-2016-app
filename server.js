@@ -33,23 +33,21 @@ app.get('/Articleone',function(req,res){
 
 
 function createTemplate(content){
-    var heading = content.heading;
-    var date = content.date;
-    var body = content.body;
+    
     var htmltemplate = `
     <html>
         <head>
-            <title>${heading}</title>
+            <title>${content.heading}</title>
         </head>
         <hr/>
         <body>
             <h1>
                 <center>
-                    <div id="date">${date}</div>
+                    <div id="date">${content.date}</div>
                 </center>
             </h1>
             <hr/>
-            <div id="content">${body}</div>
+            <div id="content">${content.body}</div>
         </body>
     </html>
     `;
