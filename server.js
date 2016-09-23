@@ -43,7 +43,11 @@ function createTemplate(content){
         </head>
         <hr/>
         <body>
-            <div id="date">${date}</div>
+            <h1>
+                <center>
+                    <div id="date">${date}</div>
+                </center>
+            </h1>
             <hr/>
             <div id="content">${body}</div>
         </body>
