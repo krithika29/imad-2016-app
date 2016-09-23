@@ -17,12 +17,40 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+var content = {
+  date : "23 Sep",  
+  heading:"Aricle One",
+  body:`
+  <p>This is my content for the article</p>
+  <p>This is my content for the article</p>
+  <p>This is my content for the article</p>`
+};
+
 app.get('/Articleone',function(req,res){
-    console.log(__dirname);
-    res.sendFile(path.join(__dirname,'ui','article-one.html'));
+   res.send(createTemplate(content));
    
 });
 
+
+function createTemplate(content){
+    var heading = content.heading;
+    var date = content.date;
+    var body = content.body;
+    var htmltemplate = `
+    <html>
+        <head>
+            <title>${heading}</title>
+        </head>
+        <hr/>
+        <body>
+            <div id="date">${date}</div>
+            <hr/>
+            <div id="content">${body}</div>
+        </body>
+    </html>
+    `;
+    return htmltemplate;
+}
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
